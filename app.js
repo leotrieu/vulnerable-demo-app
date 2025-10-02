@@ -139,6 +139,26 @@ app.get("/debug", (req, res) => {
   });
 });
 
+// DEMO HELPER: View database contents
+app.get("/admin/view-db", (req, res) => {
+  const results = {};
+
+  db.all("SELECT * FROM users", [], (err, users) => {
+    if (err) return res.status(500).json({ error: err.message });
+    results.users = users;
+
+    db.all("SELECT * FROM posts", [], (err, posts) => {
+      if (err) return res.status(500).json({ error: err.message });
+      results.posts = posts;
+
+      res.json({
+        message: "Database contents",
+        tables: results,
+      });
+    });
+  });
+});
+
 const PORT = 3002;
 app.listen(PORT, () => {
   console.log(`Vulnerable demo app running on port ${PORT}`);
