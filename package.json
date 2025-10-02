@@ -1,0 +1,28 @@
+{
+  "name": "vulnerable-demo-app",
+  "version": "1.0.0",
+  "description": "Intentionally vulnerable application for security review demonstration",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests - this is a vulnerable demo\" && exit 0"
+  },
+  "keywords": [
+    "security",
+    "demo",
+    "tutorial",
+    "vulnerable"
+  ],
+  "author": "Security Tutorial",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "warnings": {
+    "security": "This package intentionally contains security vulnerabilities for educational purposes. DO NOT use in production."
+  }
+}
